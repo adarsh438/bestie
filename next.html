@@ -117,48 +117,55 @@
     }
 
     .perspective-card {
-  perspective: 1000px;
-}
+      perspective: 1000px;
+    }
 
-.flip-card {
-  position: relative;
-  width: 100%;
-  height: 300px;
-  transform-style: preserve-3d;
-  transition: transform 0.8s cubic-bezier(0.4, 0.2, 0.2, 1);
-}
+    .flip-card {
+      position: relative;
+      width: 100%;
+      height: 300px;
+      transform-style: preserve-3d;
+      transition: transform 0.8s cubic-bezier(0.4, 0.2, 0.2, 1);
+      cursor: pointer; /* Add cursor pointer to indicate it's clickable */
+    }
 
-.flip-card:hover {
-  transform: rotateY(180deg);
-}
+    /* Remove the hover effect */
+    /* .flip-card:hover {
+      transform: rotateY(180deg);
+    } */
 
-.flip-card-front, .flip-card-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-  border-radius: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 20px;
-  transform-style: preserve-3d;
-}
+    /* New class for clicked state */
+    .flip-card.flipped {
+      transform: rotateY(180deg);
+    }
 
-.flip-card-front {
-  transform: rotateY(0deg);
-}
+    .flip-card-front, .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+      transform-style: preserve-3d;
+    }
 
-.flip-card-back {
-  transform: rotateY(180deg);
-  background: linear-gradient(135deg, #ff6b9d, #c44569);
-  color: white;
-}
+    .flip-card-front {
+      transform: rotateY(0deg);
+    }
 
-.flip-card, .flip-card-front, .flip-card-back {
-  will-change: transform;
-}
+    .flip-card-back {
+      transform: rotateY(180deg);
+      background: linear-gradient(135deg, #ff6b9d, #c44569);
+      color: white;
+    }
+
+    .flip-card, .flip-card-front, .flip-card-back {
+      will-change: transform;
+    }
     .pulse-ring {
       position: absolute;
       border: 2px solid rgba(255, 107, 157, 0.3);
@@ -174,7 +181,6 @@
 </head>
 <body class="text-gray-800 relative">
 
-  <!-- Floating Elements -->
   <div class="floating-elements">
     <div class="floating-element" style="top: 10%; left: 10%;">🌟</div>
     <div class="floating-element" style="top: 20%; right: 15%; animation-delay: -2s;">✨</div>
@@ -193,16 +199,13 @@
       <p class="text-xl text-gray-600 shimmer">Time to turn that frown upside down! 🎭✨</p>
     </header>
 
-    <!-- Main Video Section -->
     <div class="mb-16" data-aos="fade-up" data-aos-duration="1000">
       <div class="video-container mx-auto max-w-4xl">
         <div class="video-inner">
           <div class="aspect-video w-full flex items-center justify-center bg-gradient-to-br from-pink-100 to-purple-100 relative overflow-hidden min-h-[700px]">
-            <!-- Pulse rings for decoration -->
             <div class="pulse-ring w-20 h-20 top-10 left-10"></div>
             <div class="pulse-ring w-16 h-16 bottom-10 right-10" style="animation-delay: -1s;"></div>
             
-            <!-- Replace this with your actual video -->
             <video 
               class="w-full h-full object-cover rounded-2xl glow" 
               controls 
@@ -211,19 +214,16 @@
               <p class="text-center text-gray-600">Your browser doesn't support video playback. But you're still awesome! 🌟</p>
             </video>
             
-            <!-- Decorative overlay -->
             <div class="absolute inset-0 bg-gradient-to-t from-transparent via-transparent to-pink-500/10 pointer-events-none"></div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Interactive Cards Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
       
-      <!-- Flip Card 1 -->
       <div class="perspective-card" data-aos="fade-right">
-        <div class="flip-card">
+        <div class="flip-card" onclick="this.classList.toggle('flipped')">
           <div class="flip-card-front bg-white/90 backdrop-blur-md shadow-2xl">
             <div>
               <div class="text-6xl mb-4">🎪</div>
@@ -241,9 +241,8 @@
         </div>
       </div>
 
-      <!-- Flip Card 2 -->
       <div class="perspective-card" data-aos="fade-left">
-        <div class="flip-card">
+        <div class="flip-card" onclick="this.classList.toggle('flipped')">
           <div class="flip-card-front bg-white/90 backdrop-blur-md shadow-2xl">
             <div>
               <div class="text-6xl mb-4">🎨</div>
@@ -264,7 +263,6 @@
     </div>
 
 
-    <!-- Final Message -->
     <div class="text-center mt-16 mb-8" data-aos="zoom-in-up" data-aos-duration="1200">
       <div class="bg-gradient-to-r from-pink-500 to-purple-500 text-white p-8 rounded-3xl shadow-2xl glow">
         <h2 class="font-handwriting text-5xl mb-4">For you 💖</h2>
